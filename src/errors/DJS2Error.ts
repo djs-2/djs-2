@@ -28,7 +28,7 @@ const messages = new Map();
  */
 function makeError(Base: any) {
     return class DJS2Error extends Base {
-        constructor(
+        public constructor(
             key: string,
             ...args: string[] | ((...args: any[]) => string)[]
         ) {
@@ -41,7 +41,7 @@ function makeError(Base: any) {
             }
         }
 
-        get name() {
+        public get name(): string {
             return `${super.name} [${this.code}]`;
         }
     };

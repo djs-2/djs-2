@@ -21,7 +21,7 @@ import { EventEmitter } from 'events';
 
 // Interface for the events
 interface ClientEvents {
-    a: [string]
+    a: [string];
 }
 
 // Base class
@@ -43,38 +43,50 @@ class Client extends EventEmitter {
      */
     public async login(): Promise<void> {
         return new Promise((resolve, reject) => {
-            this.client.login().then(() => {
-                resolve();
-            }).catch((reason) => {
-                reject(reason);
-            });
+            this.client
+                .login()
+                .then(() => {
+                    resolve();
+                })
+                .catch((reason) => {
+                    reject(reason);
+                });
         });
     }
 
     // ===== EVENTS =====
-    public on<K extends keyof ClientEvents>(eventName: K, listener: (...args: ClientEvents[K]) => void): this {
+    public on<K extends keyof ClientEvents>(
+        eventName: K,
+        listener: (...args: ClientEvents[K]) => void
+    ): this {
         // @ts-ignore
         super.on(eventName, listener);
         return this;
     }
-    
-    public once<K extends keyof ClientEvents>(eventName: K, listener: (...args: ClientEvents[K]) => void): this {
+
+    public once<K extends keyof ClientEvents>(
+        eventName: K,
+        listener: (...args: ClientEvents[K]) => void
+    ): this {
         // @ts-ignore
         super.once(eventName, listener);
         return this;
     }
-    public off<K extends keyof ClientEvents>(eventName: K, listener: (...args: ClientEvents[K]) => void): this {
+    public off<K extends keyof ClientEvents>(
+        eventName: K,
+        listener: (...args: ClientEvents[K]) => void
+    ): this {
         // @ts-ignore
         super.off(eventName, listener);
         return this;
     }
-    public emit<K extends keyof ClientEvents>(eventName: K, ...args: ClientEvents[K]): boolean {
+    public emit<K extends keyof ClientEvents>(
+        eventName: K,
+        ...args: ClientEvents[K]
+    ): boolean {
         return super.emit(eventName, ...args);
     }
 }
 
 // Export
-export {
-    ClientEvents,
-    Client
-}
+export { ClientEvents, Client };

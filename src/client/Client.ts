@@ -22,7 +22,7 @@ import { Error, TypeError, RangeError } from '../errors/index';
 
 // Interface for the events
 interface ClientEvents {
-    a: [string];
+    
 }
 
 // Base class

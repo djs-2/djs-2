@@ -21,9 +21,7 @@ import { EventEmitter } from 'events';
 import { Error, TypeError, RangeError } from '../errors/index';
 
 // Interface for the events
-interface ClientEvents {
-    
-}
+interface ClientEvents {}
 
 // Base class
 class Client extends EventEmitter {

@@ -20,9 +20,11 @@ import { register } from './DJS2Error';
 
 const messages: { [key: string]: string | ((...args: any[]) => string) } = {
     TOKEN_INVALID: 'An invalid token was provided.',
-    DISALLOWED_INTENTS: 'Privileged intent provided is not enabled or whitelisted.',
+    DISALLOWED_INTENTS:
+        'Privileged intent provided is not enabled or whitelisted.',
 
-    UNKNOWN_CLIENT_ERROR: (error) => `An unknown client error was thrown: ${error}`
+    UNKNOWN_CLIENT_ERROR: (error) =>
+        `An unknown client error was thrown: ${error}`
 };
 
 // @ts-ignore

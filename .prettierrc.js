@@ -16,11 +16,9 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { register } from './DJS2Error';
-
-const messages: { [key: string]: string | ((...args: any[]) => string) } = {};
-
-// @ts-ignore
-for (const [key, val] of Object.entries(messages)) {
-    register(key, val);
-}
+module.exports = {
+    tabWidth: 4,
+    singleQuote: true,
+    quoteProps: 'consistent',
+    trailingComma: 'none'
+};

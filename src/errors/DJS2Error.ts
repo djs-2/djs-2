@@ -28,7 +28,10 @@ const messages = new Map();
  */
 function makeError(Base: any) {
     return class DJS2Error extends Base {
-        constructor(key: string, ...args: string[] | ((...args: any[]) => string)[]) {
+        constructor(
+            key: string,
+            ...args: string[] | ((...args: any[]) => string)[]
+        ) {
             super(message(key, args));
             this.code = key;
             // @ts-ignore
@@ -41,7 +44,7 @@ function makeError(Base: any) {
         get name() {
             return `${super.name} [${this.code}]`;
         }
-    }
+    };
 }
 
 /**
@@ -51,7 +54,10 @@ function makeError(Base: any) {
  * @param {string[]|((...args: any[])=>void)[]} args The arguments to pass to the error message
  * @returns {String} Formatted string
  */
-function message(key: string, args: string[]|((...args: any[]) => string)[]): string {
+function message(
+    key: string,
+    args: string[] | ((...args: any[]) => string)[]
+): string {
     const msg = messages.get(key);
     if (!msg) {
         throw new Error(`An invalid error message key was used: ${key}`);
@@ -73,7 +79,10 @@ function message(key: string, args: string[]|((...args: any[]) => string)[]): st
  * @param {String} key Unique error code
  * @param {*} val Error value
  */
-function register(key: string, val: string[]|((...args: any[]) => string)[]): void {
+function register(
+    key: string,
+    val: string | ((...args: any[]) => string)
+): void {
     messages.set(key, typeof val === 'function' ? val : String(val));
 }
 
@@ -87,4 +96,4 @@ export {
     _Error as Error,
     _TypeError as TypeError,
     _RangeError as RangeError
-}
+};

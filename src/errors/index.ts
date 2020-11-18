@@ -16,4 +16,5 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-export * from './errors/index';
+export * from './DJS2Error';
+export * from './messages';

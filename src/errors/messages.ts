@@ -16,4 +16,13 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-export * from './errors/index';
+import { register } from './DJS2Error';
+
+const messages: { [key: string]: string | ((...args: any[]) => string) } = {
+    
+};
+
+// @ts-ignore
+for (const [key, val] of Object.entries(messages)) {
+    register(key, val);
+}

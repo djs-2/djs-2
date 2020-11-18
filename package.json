@@ -1,0 +1,27 @@
+{
+  "name": "djs-2",
+  "version": "0.0.0",
+  "description": "Like Discord.js, but better!",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/djs-2/djs-2.git"
+  },
+  "keywords": [
+    "js",
+    "node",
+    "discord",
+    "api",
+    "client"
+  ],
+  "author": "BadBoyHaloCat",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/djs-2/djs-2/issues"
+  },
+  "homepage": "https://github.com/djs-2/djs-2#readme"
+}

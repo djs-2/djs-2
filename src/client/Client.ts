@@ -18,6 +18,7 @@
 
 import * as discord from 'discord.js';
 import { EventEmitter } from 'events';
+import { Error, TypeError, RangeError } from '../errors/index';
 
 // Interface for the events
 interface ClientEvents {
@@ -26,9 +27,13 @@ interface ClientEvents {
 
 // Base class
 class Client extends EventEmitter {
-    public constructor(token: string) {
+    public constructor(token?: string) {
         super();
-        this.token = token;
+        if (token) {
+            this.token = token;
+        } else {
+            this.token = process.env.CLIENT_TOKEN ?? '';
+        }
         this.client = new discord.Client();
     }
 

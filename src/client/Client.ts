@@ -44,7 +44,7 @@ class Client extends EventEmitter {
     public async login(): Promise<void> {
         return new Promise((resolve, reject) => {
             this.client
-                .login()
+                .login(this.token)
                 .then(() => {
                     resolve();
                 })

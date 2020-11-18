@@ -92,6 +92,7 @@ class Client extends EventEmitter {
         eventName: K,
         ...args: ClientEvents[K]
     ): boolean {
+        // @ts-ignore
         return super.emit(eventName, ...args);
     }
 }

@@ -51,7 +51,7 @@ function makeError(Base: any) {
  * Format the error message.
  * @function
  * @param {String} key Error key
- * @param {string[]|((...args: any[])=>void)[]} args The arguments to pass to the error message
+ * @param {string[]|((...args: *[])=>void)[]} args The arguments to pass to the error message
  * @returns {String} Formatted string
  */
 function message(

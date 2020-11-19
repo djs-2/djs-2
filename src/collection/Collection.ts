@@ -15,3 +15,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
+
+export class Collection<K, V> extends Map<K, V> {
+    public constructor(data: [K, V][]) {
+        super(data ?? []);
+    }
+}

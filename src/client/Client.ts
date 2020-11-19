@@ -19,6 +19,7 @@
 import * as discord from 'discord.js';
 import { EventEmitter } from 'events';
 import { Error, TypeError, RangeError } from '../errors/index';
+import { Message } from '../Message';
 
 // Interface for the events
 interface ClientEvents {}
@@ -33,6 +34,11 @@ class Client extends EventEmitter {
             this.token = process.env.CLIENT_TOKEN ?? '';
         }
         this.client = new discord.Client();
+
+        // Handle Discord.js events
+        this.client.on('message', (message: discord.Message) => {
+            this.emit(new Message(message));
+        });
     }
 
     public token: string;

@@ -54,10 +54,13 @@ class Client extends EventEmitter {
                 .catch((error) => {
                     if (error.code === 'TOKEN_INVALID') {
                         reject(new Error('TOKEN_INVALID'));
+                        return;
                     } else if (error.code === 'DISALLOWED_INTENTS') {
                         reject(new Error('DISALLOWED_INTENTS'));
+                        return;
                     }
                     reject(new Error('UNKNOWN_CLIENT_ERROR', error));
+                    return;
                 });
         });
     }

@@ -19,7 +19,7 @@
 import * as discord from 'discord.js';
 import { EventEmitter } from 'events';
 import { Error, TypeError, RangeError } from '../errors/index';
-import { Message } from '../Message';
+import { Message } from '../classes/Message';
 
 // Interface for the events
 interface ClientEvents {}
